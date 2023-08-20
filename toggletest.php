@@ -1,5 +1,5 @@
 <?php
-    include "con.php";
+    include "conn.php";
     $sql = 'select * from ledstat';
 
     $result = mysqli_query($update, $sql);
