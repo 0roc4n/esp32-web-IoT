@@ -7,13 +7,13 @@ IoT LED Control with Web Application
 3. Arduino IDE (for online compiler go to arduino IoT web and install arduino agent to your computer)
 4. Browser
 # Installation
-Part I (Web App)
+#Part I (Web App)
 1. Clone the repository https://github.com/0roc4n/esp32-web-IoT.git
 2. Open xampp, run apache and mysql
 3. open browser locate locahost phpmyadmin
 4. create new database "qlda" import qlda.sql
 5. open file folder open toggletest.php, check if working
-Part II (Arduino Installation)
+#Part II (Arduino Installation)
 -----Arduino IDE (Local Machine)------
    1. open arduino ide, create new sketch
    2. paste the arduCode.ino
