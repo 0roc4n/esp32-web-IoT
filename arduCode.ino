@@ -41,7 +41,6 @@ void loop() {
     if (httpCode > 0 && httpCode == HTTP_CODE_OK) {
       payload = http.getString();
       Serial.println(payload);
-      
       if (payload == "112030") {
         setLEDStates(true, false, false); // Turn on LED 23
       }if (payload == "102030") {
@@ -50,20 +49,23 @@ void loop() {
         setLEDStates(false, true, false); // Turn on LED 22
       }if (payload == "102031") {
         setLEDStates(false, false, true); // Turn on LED 1
-      }if (payload == "112233") {
-        setLEDStates(true, true, true); // Turn on all LEDs
-      }if (payload == "112230") {
-        setLEDStates(true, true, false); // Turn on LED 23 and 22
-      } else if (payload == "112033") {
-        setLEDStates(true, false, true); // Turn on LED 23 and 1
-      }if (payload == "102233") {
-        setLEDStates(false, true, true); // Turn on LED 22 and 1
+      }if (payload == "112130") {
+        setLEDStates(true, true, false); // Turn on all LEDs
+      }if (payload == "112031") {
+        setLEDStates(true, false, true); // Turn on LED 23 and 22
+      } else if (payload == "102131") {
+        setLEDStates(false, true, true); // Turn on LED 23 and 1
+      }if (payload == "112131") {
+        setLEDStates(true, true, true); // Turn on LED 22 and 1
       }
+      
+      
     }
     
     http.end();
   }
   //digitalWrite(21, HIGH);
+  
 }
 
 void setLEDStates(bool state23, bool state22, bool state1) {
