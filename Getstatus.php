@@ -21,11 +21,11 @@ $conn = new mysqli($server, $username, $password,$DB);		// Check database connec
 	// 	}
 
 	//separate
-	$query2 ="SELECT * from stat_tbl";					// Select all data in table "status"
+	$query2 ="SELECT * from ledstat";					// Select all data in table "status"
 	$result2 = $conn->query($query2);
 	
 		while($row2 = $result2->fetch_assoc()) 
 		{
-			echo $row2["id"]."". $row2["is_on"];				// Echo data , equivalent with send data to esp
+			echo $row2["ledID"]."". $row2["status"];				// Echo data , equivalent with send data to esp
 		}
 ?>
