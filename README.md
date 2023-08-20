@@ -14,14 +14,14 @@ Part I (Web App)
 4. create new database "qlda" import qlda.sql
 5. open file folder open toggletest.php, check if working
 Part II (Arduino Installation)
-   Arduino IDE (Local Machine)
+   *Arduino IDE (Local Machine)*
    1. open arduino ide, create new sketch
    2. paste the arduCode.ino
    3. install all neccessary libraries (check the "#include")
    4. check board and port
    5. upload code
       *Note if this is using esp32 board, check board for esp8266*
-   Arduino Editor (Online IDE)
+   *Arduino Editor (Online IDE)*
     1. Go to https://create.arduino.cc
     2. create new sketch
     3. paste arduCode.ino
