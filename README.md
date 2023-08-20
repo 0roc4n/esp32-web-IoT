@@ -14,19 +14,19 @@ Part I (Web App)
 4. create new database "qlda" import qlda.sql
 5. open file folder open toggletest.php, check if working
 Part II (Arduino Installation)
-   *Arduino IDE (Local Machine)*
+*Arduino IDE (Local Machine)*
    1. open arduino ide, create new sketch
    2. paste the arduCode.ino
    3. install all neccessary libraries (check the "#include")
    4. check board and port
    5. upload code
-      *Note if this is using esp32 board, check board for esp8266*
-   *Arduino Editor (Online IDE)*
+*Note if this is using esp32 board, check board for esp8266*
+*Arduino Editor (Online IDE)*
     1. Go to https://create.arduino.cc
     2. create new sketch
     3. paste arduCode.ino
     4. select board and port esp32s
     5. upload code
-       *Note install arduino agent to run usb upload via arduino ide online compiler*
+*Note install arduino agent to run usb upload via arduino ide online compiler*
 # Wiring Diagram
 1. Check arduCOde.ino for LED wiring diagram
