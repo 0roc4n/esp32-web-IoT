@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2023 at 06:01 PM
+-- Generation Time: Aug 20, 2023 at 02:49 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `qlda`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ledstat`
+--
+
+CREATE TABLE `ledstat` (
+  `ledID` int NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `ledstat`
+--
+
+INSERT INTO `ledstat` (`ledID`, `status`) VALUES
+(1, '0'),
+(2, '0'),
+(3, '0');
 
 -- --------------------------------------------------------
 
@@ -64,6 +84,12 @@ INSERT INTO `stat_tbl` (`id`, `status`, `is_on`) VALUES
 --
 
 --
+-- Indexes for table `ledstat`
+--
+ALTER TABLE `ledstat`
+  ADD PRIMARY KEY (`ledID`);
+
+--
 -- Indexes for table `stat_tbl`
 --
 ALTER TABLE `stat_tbl`
@@ -72,6 +98,12 @@ ALTER TABLE `stat_tbl`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ledstat`
+--
+ALTER TABLE `ledstat`
+  MODIFY `ledID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `stat_tbl`
