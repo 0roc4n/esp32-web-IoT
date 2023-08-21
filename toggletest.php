@@ -54,10 +54,14 @@
         </table>
         <div class="lowe">
             
-
         </div>
     
     </div>
-    
+    <script>
+        // Reload the page every 10 seconds
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+    </script>
 </body>
 </html>
