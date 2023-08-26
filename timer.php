@@ -3,6 +3,7 @@ include 'conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $selectedDatetime = $_POST['datetime'];
+        
 
     // Convert the datetime string to a DateTime object
     $dateTime = new DateTime($selectedDatetime);
@@ -34,7 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <form method="post" action="">
+
             <label for="datetime">Select a Date and Time:</label>
+            <div class="chck">
+                <label for="checkbox">Led 1</label>
+                <input type="checkbox" name="choose_led" value="led1">
+                <label for="checkbox">Led 2</label>
+                <input type="checkbox" name="choose_led" value="led1">
+                <label for="checkbox">Led 3</label>
+                <input type="checkbox" name="choose_led" value="led1">
+            </div>
+            
             <input type="datetime-local" id="datetime" name="datetime">
             <button type="submit">Submit</button>
         </form>
