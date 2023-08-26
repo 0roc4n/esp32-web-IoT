@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <?php foreach ($status as $stat) {?>
-                <tr>
+                <tr>  ;. . .;.l
                 
                 <td><?php echo htmlspecialchars($stat['ledID']); ?></td>
                 <td>
@@ -57,11 +57,11 @@
         </div>
     
     </div>
-    <script>
-        // Reload the page every 10 seconds
-        setTimeout(function() {
-            location.reload();
-        }, 1000);
-    </script>
+        <!-- <script>
+            // Reload the page every 10 seconds
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+        </script> -->
 </body>
 </html>
