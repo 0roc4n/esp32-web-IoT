@@ -15,8 +15,8 @@ bool ledState1 = false;
 HTTPClient http;
 
 // host to send data
-const char* host = "http://192.168.47.238/esp32/Getstatus.php";
-const char* host2 = "192.168.47.238";
+const char* host = "http://192.168.134.238/esp32/Getstatus.php";
+const char* host2 = "192.168.134.238";
 
 
 void setup() {
@@ -25,6 +25,7 @@ void setup() {
   pinMode(23, OUTPUT);
   
   pinMode(21, OUTPUT);
+  pinMode(19, OUTPUT);
   
   Serial.begin(9600);
   Serial.print("Connecting to ");
@@ -145,7 +146,7 @@ void setLEDStates(bool state23, bool state22, bool state1) {
 
   if (ledState1 != state1) {
     ledState1 = state1;
-    digitalWrite(35, state1 ? HIGH : LOW);
+    digitalWrite(19, state1 ? HIGH : LOW);
     delay(50);
   }
 }
