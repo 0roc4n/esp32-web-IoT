@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <?php foreach ($status as $stat) {?>
-                <tr>  ;. . .;.l
+                <tr> 
                 
                 <td><?php echo htmlspecialchars($stat['ledID']); ?></td>
                 <td>
@@ -53,7 +53,11 @@
             <?php }?>
         </table>
         <div class="lowe">
-            
+            <div class="tem" onload="temp();">
+                    <div class="shows" id="temper">
+
+                    </div>
+            </div>
         </div>
     
     </div>
@@ -63,5 +67,19 @@
                 location.reload();
             }, 1000);
         </script> -->
+    <script type="text/javascript">
+        function temp(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                document.getElementById("temper").innerHTML = this.responseText;
+
+            }
+            xhttp.open("GET", "response.php");
+            xhttp.send();
+        }
+        setInterval(function(){
+        temp();
+        }, 1);
+    </script>
 </body>
 </html>
