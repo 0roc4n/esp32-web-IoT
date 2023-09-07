@@ -17,14 +17,21 @@ if(!$connect){
 
 echo "Connection Success!<br><br>";
 
-$temperature = $_GET["temperature"];
-$humidity = $_GET["humidity"]; 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $temperature = $_POST["temperature"];
+    $humidity = $_POST["humidity"]; 
 
+    $query = "INSERT INTO temp_humd_tbl (temp, humd) VALUES ('$temperature', '$humidity')";
+    $result = mysqli_query($connect, $query);
 
-$query = "INSERT INTO temp_humd_tbl (temp, humd) VALUES ('$temperature', '$humidity')";
-$result = mysqli_query($connect,$query);
-
-echo "Insertion Success!<br>";
+    if ($result) {
+        echo "Insertion Success!<br>";
+    } else {
+        echo "Error: " . mysqli_error($connect);
+    }
+} else {
+    echo "Invalid request method. This script expects a POST request.";
+}
 
 ?>
 </body>
