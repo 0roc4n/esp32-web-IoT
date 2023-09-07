@@ -6,7 +6,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 // WiFi parameters
-const char* ssid = "Connect";
+const char* ssid = "Pixel 9";
 const char* password = "connect123";
 
 bool ledState23 = false;
@@ -15,8 +15,8 @@ bool ledState1 = false;
 HTTPClient http;
 
 // host to send data
-const char* host = "http://192.168.134.238/esp32/Getstatus.php";
-const char* host2 = "192.168.134.238";
+const char* host = "http://192.168.108.238/esp32/Getstatus.php";
+const char* host2 = "192.168.108.238";
 
 
 void setup() {
@@ -103,14 +103,13 @@ void loop() {
         return;
     }
 
-    String request = "GET /esp32-web-iot/connection.php";
-    request += "?temperature=" + String(temperature);
-    request += "&humidity=" + String(humidity);
-    request += " HTTP/1.1\r\n";
-    request += "Host: " + String(host2) + "\r\n";
-    request += "Connection: close\r\n\r\n";
-
-    client.print(request);
+    String postData = "temperature=" + String(temperature) + "&humidity=" + String(humidity);
+    client.print(String("POST http://192.168.108.238/esp32-web-iot/connection.php HTTP/1.1\r\n") +
+             "Host: " + host2 + "\r\n" +
+             "Content-Type: application/x-www-form-urlencoded\r\n" +
+             "Content-Length: " + postData.length() + "\r\n" +
+             "Connection: close\r\n\r\n" +
+             postData);
 
     unsigned long timeout = millis();
     while (client.available() == 0) {
