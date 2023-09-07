@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'conn.php';
     
     // Fetch timer data where is_active = 1
@@ -6,25 +7,48 @@
     $result = mysqli_query($update, $sql);
     $timer = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_free_result($result);
-
+    if (isset($_SESSION['selectedValue'])) {
+        $selectedValue = $_SESSION['selectedValue'];
+        echo "Selected Value: $selectedValue";
+    } else {
+        echo "No option selected.";
+    }
+    
     // Loop through each timer entry
     foreach ($timer as $time) {
         $setTime = $time['datetime_value'];
+        $leds = $time["choose_led"];
         $dateTime = new DateTime($setTime);
         $timestamp = $dateTime->getTimestamp();
         
         $today_time = time();
         $diff_day = ($timestamp - $today_time);
         $leftTime = ($diff_day / 86400);
+        
 
         // Check if the trigger_executed flag is 0
         if ($leftTime <= 0.25 && $time['is_active'] == 1 && $time['trigger_executed'] == 0) {
             $timerId = $time['id'];
-            $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";
+            
+            if($leds == "led1"){
+                echo "Led 1 is updated";
+                $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";
+                
+            }else if($leds == "led2"){
+                $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";
+            }else if($leds == "led3"){
+                $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";
+            }else if($leds == "led1,led2"){
+                $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";;
+            }else if($leds == "led1,led2,led3"){
+                $updateSql = "UPDATE timer SET is_active = 0, trigger_executed = 1";
+            }
+           
             
             // Execute the update query
             if ($update->query($updateSql) === TRUE) {
                 echo "Updated timer $timerId.\n";
+                
             } else {
                 echo "Error updating timer $timerId: " . $update->error . "\n";
             }
@@ -47,6 +71,7 @@
     <ul>
         <?php foreach ($timer as $time) {?>
             <li><?php echo htmlspecialchars($time['datetime_value']); ?></li>
+            
         <?php }?>
     </ul>
     <?php
